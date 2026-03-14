@@ -1,36 +1,42 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# FeedAnalysis
 
-## Getting Started
+> **Note:** This project is developed as a Computer Science graduation project by a student at university.
 
-First, run the development server:
+FeedAnalysis is an intelligent system for monitoring and analyzing customer feedback, designed for specialty coffee shops in Riyadh. The project leverages AI to automate the review, classification, and summarization of customer feedback, providing actionable insights for business improvement.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Customer Feedback Portal:** Simple web interface for customers to submit feedback.
+- **AI Processing Engine:** Automatically classifies sentiment, summarizes feedback, and extracts key strengths and problems using an external AI API.
+- **Admin Dashboard:** Secure dashboard for viewing KPIs, sentiment charts, and detailed feedback entries with filtering and visualization.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Technology Stack
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Frontend:** Next.js (React), CSS
+- **Backend & Database:** Firebase (Firestore, Functions)
+- **AI Integration:** Gemini or OpenAI API
+- **Visualization:** recharts, @tanstack/react-table, lucide-react, date-fns
 
-## Learn More
+## Database Schema (Firestore)
 
-To learn more about Next.js, take a look at the following resources:
+Each feedback entry includes:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- `id`: Unique identifier
+- `raw_text`: Original feedback
+- `timestamp`: Submission time
+- `sentiment`: positive, negative, or neutral
+- `summary`: AI-generated summary
+- `key_strengths`: List of positive aspects
+- `key_problems`: List of issues
+- `status`: Processing state
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Development Phases
 
-## Deploy on Vercel
+1. Environment setup & UI construction
+2. Backend logic & database integration
+3. AI API integration
+4. Data visualization & testing
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This is a draft README. Details and instructions will be updated as the project progresses.
