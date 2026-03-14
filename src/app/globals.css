@@ -1,42 +1,56 @@
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* Minimal reset — restores browser defaults and sensible base rules */
+
+/* Box sizing and remove default spacing */
+*,
+*::before,
+*::after {
+  box-sizing: revert;
+  margin: 0;
+  padding: 0;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Ensure media elements behave */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
 }
 
-html,
+/* Use system font stack, enable font-smoothing */
 body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+  font-family:
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    Roboto,
+    "Helvetica Neue",
+    Arial,
+    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: initial;
+  background: initial;
 }
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+/* Forms inherit font */
+input,
+button,
+textarea,
+select {
+  font: inherit;
 }
 
+/* Utility */
 a {
-  color: inherit;
-  text-decoration: none;
+  color: revert;
+  text-decoration: revert;
+}
+[hidden] {
+  display: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-}
+/* Leave color-scheme to the browser by default */
