@@ -1,6 +1,6 @@
 # FeedAnalysis
 
-> **Note:** This project is developed as a Computer Science graduation project by a student at university.
+> **Note:** This project is developed as a Computer Science graduation project.
 
 FeedAnalysis is an intelligent system for monitoring and analyzing customer feedback, designed for specialty coffee shops in Riyadh. The project leverages AI to automate the review, classification, and summarization of customer feedback, providing actionable insights for business improvement.
 

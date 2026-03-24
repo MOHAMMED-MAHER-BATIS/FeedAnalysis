@@ -1,6 +1,5 @@
-import Image from "next/image";
 import styles from "./page.module.css";
-
+import SignIn from "../../components/auth/signIn";
 export default function Home() {
-  return <h1>hi this is FeedAnalysis a CS project for my graduation</h1>;
+  return <SignIn />;
 }
