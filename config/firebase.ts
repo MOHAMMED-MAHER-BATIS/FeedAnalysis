@@ -18,5 +18,7 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+export const app = initializeApp(firebaseConfig);
+
+// Only initialize analytics if projectId is available
+export const analytics = firebaseConfig.projectId ? getAnalytics(app) : null;
