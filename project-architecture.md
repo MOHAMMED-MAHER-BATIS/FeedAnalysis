@@ -13,6 +13,13 @@
 - **AI Integration:** External AI API (e.g., Gemini, OpenAI) for NLP and sentiment analysis.
 - **Dashboard Libraries:** `recharts` (visualization), `@tanstack/react-table` (data tables), `lucide-react` (icons), `date-fns` (date formatting).
 
+### Theme Colors
+
+- **Primary 900:** `#0F2854`
+- **Primary 700:** `#1C4D8D`
+- **Primary 500:** `#4988C4`
+- **Primary 100:** `#BDE8F5`
+
 ---
 
 ## 2. System Architecture

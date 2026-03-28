@@ -1,5 +1,14 @@
 /* Minimal reset — restores browser defaults and sensible base rules */
 
+:root {
+  --color-primary-900: #0f2854;
+  --color-primary-700: #1c4d8d;
+  --color-primary-500: #4988c4;
+  --color-primary-100: #bde8f5;
+  --color-surface: #f5fbfe;
+  --color-text: #0f2854;
+}
+
 /* Box sizing and remove default spacing */
 *,
 *::before,
@@ -25,8 +34,8 @@ body {
   font-optical-sizing: auto;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: initial;
-  background: initial;
+  color: var(--color-text);
+  background: linear-gradient(180deg, var(--color-surface) 0%, #ffffff 100%);
 }
 
 /* Forms inherit font */
@@ -39,7 +48,7 @@ select {
 
 /* Utility */
 a {
-  color: revert;
+  color: var(--color-primary-700);
   text-decoration: revert;
 }
 [hidden] {

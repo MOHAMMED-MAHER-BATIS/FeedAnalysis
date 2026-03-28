@@ -17,6 +17,15 @@ FeedAnalysis is an intelligent system for monitoring and analyzing customer feed
 - **AI Integration:** Gemini or OpenAI API
 - **Visualization:** recharts, @tanstack/react-table, lucide-react, date-fns
 
+## Theme Colors
+
+The project uses the following blue palette as the core theme:
+
+- `#0F2854` (Primary 900)
+- `#1C4D8D` (Primary 700)
+- `#4988C4` (Primary 500)
+- `#BDE8F5` (Primary 100)
+
 ## Database Schema (Firestore)
 
 Each feedback entry includes:

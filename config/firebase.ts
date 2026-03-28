@@ -20,5 +20,8 @@ const firebaseConfig = {
 // Initialize Firebase
 export const app = initializeApp(firebaseConfig);
 
-// Only initialize analytics if projectId is available
-export const analytics = firebaseConfig.projectId ? getAnalytics(app) : null;
+// Analytics depends on browser globals, so skip it during SSR.
+export const analytics =
+  typeof window !== "undefined" && firebaseConfig.measurementId
+    ? getAnalytics(app)
+    : null;

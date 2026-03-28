@@ -17,7 +17,7 @@ export default function SignIn() {
       router.push("/dashboard");
     } catch (error) {
       console.error("Error creating user:", error);
-      alert("Failed to create user. Please try again.");
+      alert(error);
     }
   };
 
