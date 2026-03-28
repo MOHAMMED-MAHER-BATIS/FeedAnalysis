@@ -51,6 +51,7 @@ export default function SignIn() {
           onChange={(e) => setPassword(e.target.value.toString())}
         />
         <button type="submit">Sign In</button>
+        <a href="/auth/login">Already have an account? Log in</a>
       </form>
     </div>
   );

@@ -68,5 +68,5 @@
   text-decoration: none;
 }
 .signInForm a:hover {
-  text-decoration: underline;
+  color: var(--color-primary-900);
 }
