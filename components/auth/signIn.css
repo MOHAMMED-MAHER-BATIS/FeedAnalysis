@@ -60,3 +60,13 @@
 .signInForm button:hover {
   background-color: var(--color-primary-900);
 }
+.signInForm a {
+  display: block;
+  margin-top: 15px;
+  text-align: center;
+  color: var(--color-primary-700);
+  text-decoration: none;
+}
+.signInForm a:hover {
+  text-decoration: underline;
+}

@@ -1,0 +1,72 @@
+.FormContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  gap: 20px;
+  background: var(--color-primary-100);
+}
+
+.signInForm {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid var(--color-primary-100);
+  border-radius: 8px;
+  align-self: center;
+  background-color: #ffffff;
+  box-shadow: 0 12px 30px rgba(15, 40, 84, 0.12);
+}
+
+.FormContainer h1 {
+  color: var(--color-primary-900);
+}
+
+.signInForm label {
+  display: block;
+  margin-top: 15px;
+  font-weight: 500;
+  color: var(--color-primary-900);
+}
+
+.signInForm input {
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  border: 1px solid var(--color-primary-100);
+  border-radius: 4px;
+}
+
+.signInForm input:focus {
+  outline: 2px solid var(--color-primary-500);
+  border-color: var(--color-primary-500);
+}
+
+.signInForm button {
+  width: 100%;
+  margin-top: 20px;
+  padding: 10px;
+  background-color: var(--color-primary-700);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.signInForm button:hover {
+  background-color: var(--color-primary-900);
+}
+.signInForm a {
+  display: block;
+  margin-top: 15px;
+  text-align: center;
+  color: var(--color-primary-700);
+  text-decoration: none;
+}
+.signInForm a:hover {
+  text-decoration: underline;
+}
