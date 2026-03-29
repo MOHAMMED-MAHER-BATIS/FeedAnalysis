@@ -1,18 +1,22 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
 .navBar {
-  height: 40px;
+  height: 60px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 14px 24px;
   background: var(--color-primary-900);
   border-bottom: 1px solid rgba(0, 0, 0, 0.3);
   box-shadow: 0px 30px 56px -20px var(--color-primary-900);
-  position: sticky; /* or relative */
+  position: sticky;
   top: 0;
   z-index: 1000;
 }
 
 .brand {
+  padding-left: 24px;
   color: #ffffff;
   font-size: 1.5rem;
   font-weight: 700;
@@ -20,7 +24,54 @@
   text-decoration: none;
 }
 
-.loginButton {
+.navLinks {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  height: 100%;
+  border-left: 1px solid rgba(255, 255, 255, 0.35);
+  border-right: 1px solid rgba(255, 255, 255, 0.35);
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+.feedBackPortal {
+  height: 100%;
+  padding: 0 14px;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navBar > .navLinks {
+  height: 100%;
+  display: flex;
+  align-items: stretch;
+}
+
+.feedBackPortal:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+  transform: translateY(-1px);
+}
+
+.feedBackPortal:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.35);
+}
+
+.logout {
+  margin-right: 24px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -39,7 +90,7 @@
     transform 0.2s ease;
 }
 
-.loginButton:hover {
+.logout:hover {
   background-color: #ffffff;
   border-color: var(--color-primary-500);
   transform: translateY(-1px);
@@ -54,7 +105,12 @@
     font-size: 1rem;
   }
 
-  .loginButton {
+  .feedBackPortal {
+    padding: 0 10px;
+    font-size: 0.95rem;
+  }
+
+  .logout {
     padding: 7px 12px;
     font-size: 0.95rem;
   }
