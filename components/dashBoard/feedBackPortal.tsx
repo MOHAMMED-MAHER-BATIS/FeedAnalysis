@@ -1,15 +1,15 @@
 "use client";
-import { useState } from "react";
 import "./feedBackPortal.css";
+import { useState } from "react";
+import { analysFeedback } from "../../hooks/ai/giminiAPI";
 export default function FeedBackPortal() {
   const [feedback, setFeedback] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     console.log("Feedback submitted:", feedback);
-    
+    console.log(await analysFeedback(feedback));
   };
-
   return (
     <main>
       <form className="feedback-form" action="" onSubmit={handleSubmit}>
