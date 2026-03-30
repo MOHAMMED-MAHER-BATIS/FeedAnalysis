@@ -38,6 +38,9 @@ export default function NavBar() {
           <Link className="feedBackPortal" href="/feedBackPortal">
             Feedback Portal
           </Link>
+          <Link className="feedBackPortal" href="/dashboard">
+            Dashboard
+          </Link>
         </div>
       ) : null}
       ;

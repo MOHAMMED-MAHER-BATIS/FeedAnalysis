@@ -1,5 +1,6 @@
 "use server";
 import { GoogleGenAI, Type, Schema } from "@google/genai";
+import saveFeedbackResult from "../firebase/saveFeedbackResult";
 
 const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
 
@@ -63,6 +64,8 @@ export async function analysFeedback(userInput: string) {
 
     const result = JSON.parse(response.text);
 
+    await saveFeedbackResult(userInput, result);
+    
     return result;
   } catch (error) {
     return console.error("AI Analysis Error:", error);

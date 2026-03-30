@@ -34,18 +34,30 @@
 
 ## 3. Database Schema (Firebase Firestore)
 
-**Collection:** `feedback_entries`
+### 3.1. Collection: `feedbacks`
 
-| Field           | Type            | Description                                                                               |
-| :-------------- | :-------------- | :---------------------------------------------------------------------------------------- |
-| `id`            | String          | Unique document identifier (auto-generated).                                              |
-| `raw_text`      | String          | The original feedback text submitted by the customer.                                     |
-| `timestamp`     | Timestamp       | Date and time of submission.                                                              |
-| `sentiment`     | String          | [cite_start]Classification: `positive`, `negative`, or `neutral`. [cite: 117]             |
-| `summary`       | String          | [cite_start]AI-generated summary of the feedback. [cite: 118]                             |
-| `key_strengths` | Array (Strings) | [cite_start]Extracted positive operational aspects (e.g., "barista service"). [cite: 119] |
-| `key_problems`  | Array (Strings) | [cite_start]Extracted operational issues (e.g., "wait time"). [cite: 119]                 |
-| `status`        | String          | Processing state: `pending`, `processed`, `error`.                                        |
+- **Document ID:** Auto-generated
+
+| Field           | Type            | Description                                                                 |
+| :-------------- | :-------------- | :-------------------------------------------------------------------------- |
+| `original_text` | String          | The raw customer feedback text.                                             |
+| `sentiment`     | String          | Classification: `positive`, `negative`, or `neutral`.                       |
+| `summary`       | String          | AI-generated summary of the feedback.                                       |
+| `key_strengths` | Array (Strings) | Identified positive attributes (e.g., `"Coffee Quality"`, `"Cleanliness"`). |
+| `key_problems`  | Array (Strings) | Identified negative attributes (e.g., `"Late Order"`, `"High Prices"`).     |
+| `createdAt`     | Timestamp       | Date and time of submission.                                                |
+
+### 3.2. Collection: `statistics`
+
+- **Document ID:** `Month_Year` (e.g., `March_2026`)
+
+| Field                   | Type      | Description                                                                                               |
+| :---------------------- | :-------- | :-------------------------------------------------------------------------------------------------------- |
+| `total_feedbacks`       | Number    | Aggregate count of all feedback records in the selected month.                                            |
+| `sentiment_counts`      | Map       | Sentiment totals with keys: `positive`, `negative`, `neutral` (all Number values).                        |
+| `strengths_frequencies` | Map       | Key-value pairs for strengths and occurrence count (e.g., `{ "Coffee Quality": 45, "Cleanliness": 12 }`). |
+| `problems_frequencies`  | Map       | Key-value pairs for problems and occurrence count (e.g., `{ "Late Order": 8 }`).                          |
+| `lastUpdatedAt`         | Timestamp | Date and time of the most recent aggregation run.                                                         |
 
 ---
 
@@ -67,7 +79,7 @@
 **Feedback Card Component Layout:**
 
 - **Header:** Timestamp & Sentiment Badge (Green/Red/Grey).
-- **Body:** \* **Original Feedback:** `raw_text`
+- **Body:** \* **Original Feedback:** `original_text`
   - **AI Summary:** `summary`
 - **Footer:** Keyword Tags (`key_strengths`, `key_problems`).
 
