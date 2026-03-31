@@ -5,7 +5,6 @@
 }
 
 main {
-  padding: 24px;
   height: 100vh;
   background-color: var(--color-primary-100);
   display: flex;
