@@ -1,0 +1,29 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--color-primary-100);
+}
+
+main {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  width: 100%;
+}
+
+.sidebar {
+  width: 20%;
+  background-color: var(--color-primary-500);
+}
+
+.mainContent {
+  width: 100%;
+  margin-right: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}

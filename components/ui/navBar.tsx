@@ -3,17 +3,20 @@ import React from "react";
 import Link from "next/link";
 import { getAuth, onAuthStateChanged, User } from "firebase/auth";
 import { app } from "../../config/firebase";
+import { useRouter } from "next/navigation";
 import "./navBar.css";
 
 export default function NavBar() {
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
   const [isReady, setIsReady] = React.useState(false);
+  const router = useRouter();
 
   React.useEffect(() => {
     const auth = getAuth(app);
     const unsubscribe = onAuthStateChanged(auth, (user: User | null) => {
       if (user) {
         setIsLoggedIn(true);
+        router.push("/dashboard");
       } else {
         setIsLoggedIn(false);
       }
