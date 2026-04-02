@@ -24,24 +24,21 @@ type StatisticsDocument = {
     negative: number;
     neutral: number;
   };
-  strengths_frequencies: Record<string, number>;
-  problems_frequencies: Record<string, number>;
+  strengths: string[];
+  problems: string[];
+  strengths_frequencies?: Record<string, number>;
+  problems_frequencies?: Record<string, number>;
   lastUpdatedAt: unknown;
 };
 
-function addFrequencies(
-  base: Record<string, number>,
-  items: string[],
-): Record<string, number> {
-  const next = { ...base };
+function appendItems(base: string[], items: string[]): string[] {
+  const cleaned = items.map((item) => item.trim()).filter(Boolean);
+  return [...base, ...cleaned];
+}
 
-  for (const item of items) {
-    const key = item.trim();
-    if (!key) continue;
-    next[key] = (next[key] ?? 0) + 1;
-  }
-
-  return next;
+function frequencyMapToList(frequencyMap?: Record<string, number>): string[] {
+  if (!frequencyMap) return [];
+  return Object.keys(frequencyMap);
 }
 
 async function updateStatisticsCounter(result: AnalysisResult) {
@@ -65,12 +62,12 @@ async function updateStatisticsCounter(result: AnalysisResult) {
   await setDoc(statsRef, {
     total_feedbacks: (existing.total_feedbacks ?? 0) + 1,
     sentiment_counts: currentSentimentCounts,
-    strengths_frequencies: addFrequencies(
-      existing.strengths_frequencies ?? {},
+    strengths: appendItems(
+      existing.strengths ?? frequencyMapToList(existing.strengths_frequencies),
       result.key_strengths,
     ),
-    problems_frequencies: addFrequencies(
-      existing.problems_frequencies ?? {},
+    problems: appendItems(
+      existing.problems ?? frequencyMapToList(existing.problems_frequencies),
       result.key_problems,
     ),
     lastUpdatedAt: serverTimestamp(),

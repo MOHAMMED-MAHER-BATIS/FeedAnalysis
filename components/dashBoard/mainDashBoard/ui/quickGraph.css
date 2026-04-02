@@ -1,0 +1,15 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.quickGraphContainer {
+  background: rgb(216, 216, 216);
+  padding: 5px;
+  margin: 24px 24px 0 24px;
+  gap: 5px;
+  max-height: 70vh;
+  border-radius: 14px;
+  box-shadow: #111111 0px 8px 24px;
+}

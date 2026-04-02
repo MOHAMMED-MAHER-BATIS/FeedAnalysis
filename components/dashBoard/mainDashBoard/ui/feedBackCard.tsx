@@ -14,7 +14,7 @@ interface Post {
 
 function formatList(value?: string | string[]) {
   if (!value) return "N/A";
-  return Array.isArray(value) ? value.join(" • ") : value;
+  return Array.isArray(value) ? value.join(" ◾ ") : value;
 }
 
 function sentimentClass(sentiment?: string) {
@@ -73,7 +73,7 @@ export default function FeedbackCard() {
           <div className="detailColumn">
             <div className="sectionTitle">OREGINAL_FEEDBACK 📄</div>
             <div className="sectionBody">
-              |{post.original_text ?? "No text"}|
+              ◾{post.original_text ?? "No text"}
             </div>
           </div>
 
@@ -81,7 +81,7 @@ export default function FeedbackCard() {
             <div className="sectionTitleWithIcon">
               <span className="sectionTitle">AI_SUMMARY ✨</span>
             </div>
-            <div className="sectionBody">|{post.summary ?? "No summary"}|</div>
+            <div className="sectionBody">◾{post.summary ?? "No summary"}</div>
           </div>
 
           <div className="keyPointsColumn">
@@ -91,7 +91,7 @@ export default function FeedbackCard() {
                   <span className="sectionTitle">KEY_STRENGTHS 📈</span>
                 </div>
                 <div className="sectionBody">
-                  |{formatList(post.key_strengths)}|
+                  {formatList(post.key_strengths)}
                 </div>
               </div>
             )}
@@ -101,7 +101,7 @@ export default function FeedbackCard() {
                   <span className="sectionTitle">KEY_PROBLEMS 📉</span>
                 </div>
                 <div className="sectionBody">
-                  |{formatList(post.key_problems)}|
+                  {formatList(post.key_problems)}
                 </div>
               </div>
             )}

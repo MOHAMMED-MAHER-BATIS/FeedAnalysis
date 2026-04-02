@@ -1,5 +1,6 @@
 import "./dashBoard.css";
 import FeedbackCard from "./ui/feedBackCard";
+import QuickGraph from "./ui/quickGraph";
 export default function Dashboard() {
   return (
     <main>
@@ -11,7 +12,7 @@ export default function Dashboard() {
       <div className="mainContent">
         {/* top content */}
         <div className="topContent">
-          <h1>here is the top content</h1>
+          <QuickGraph />
         </div>
         {/* bottom content */}
         <div className="bottomContent">
