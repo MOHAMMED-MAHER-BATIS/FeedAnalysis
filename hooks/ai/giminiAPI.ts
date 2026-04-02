@@ -9,12 +9,13 @@ const responseSchema: Schema = {
   properties: {
     sentiment: {
       type: Type.STRING,
-      description: "Classify as 'positive', 'negative', or 'neutral'.",
+      description:
+        "Classify as 'positive', 'negative ^^DO NOT SAY IT IS BEGATIVE ANLESS ITS 80% NEGATIVE^^','neutral'.",
     },
     summary: {
       type: Type.STRING,
       description:
-        "An extremely brief summary of the feedback, strictly under 15 words.",
+        "An extremely brief summary of the feedback, strictly 50% of the original length.",
     },
     analysis_feedback: {
       type: Type.STRING,
@@ -65,7 +66,7 @@ export async function analysFeedback(userInput: string) {
     const result = JSON.parse(response.text);
 
     await saveFeedbackResult(userInput, result);
-    
+
     return result;
   } catch (error) {
     return console.error("AI Analysis Error:", error);

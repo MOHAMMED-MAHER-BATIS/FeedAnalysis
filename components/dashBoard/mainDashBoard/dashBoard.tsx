@@ -4,9 +4,9 @@ export default function Dashboard() {
   return (
     <main>
       {/* sidebare */}
-      <div className="sidebar">
+      {/* <div className="sidebar">
         <h1>here is the sidebare</h1>
-      </div>
+      </div> */}
       {/* main content */}
       <div className="mainContent">
         {/* top content */}

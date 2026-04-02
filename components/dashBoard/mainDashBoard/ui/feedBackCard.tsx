@@ -66,38 +66,45 @@ export default function FeedbackCard() {
         <div className="feedbackCard" key={post.id}>
           <div className="sentimentColumn">
             <div className={`sentimentbadge ${sentimentClass(post.sentiment)}`}>
-              {post.sentiment ?? "N/A"}
+              {post.sentiment?.toUpperCase() ?? "N/A"}
             </div>
           </div>
 
           <div className="detailColumn">
-            <div className="sectionTitle">Detailed Customer Feedback</div>
-            <div className="sectionBody">{post.original_text ?? "No text"}</div>
+            <div className="sectionTitle">OREGINAL_FEEDBACK 📄</div>
+            <div className="sectionBody">
+              |{post.original_text ?? "No text"}|
+            </div>
           </div>
 
           <div className="summaryColumn">
             <div className="sectionTitleWithIcon">
-              <span className="sectionTitle">🤖 AI-Generated Summary</span>
+              <span className="sectionTitle">AI_SUMMARY ✨</span>
             </div>
-            <div className="sectionBody">{post.summary ?? "No summary"}</div>
+            <div className="sectionBody">|{post.summary ?? "No summary"}|</div>
           </div>
 
           <div className="keyPointsColumn">
-            <div className="keyGroup">
-              <div className="sectionTitleWithIcon">
-                <span className="sectionTitle">📈 Key Strengths</span>
+            {post.key_strengths?.length === 0 ? null : (
+              <div className="keyGroup">
+                <div className="sectionTitleWithIcon">
+                  <span className="sectionTitle">KEY_STRENGTHS 📈</span>
+                </div>
+                <div className="sectionBody">
+                  |{formatList(post.key_strengths)}|
+                </div>
               </div>
-              <div className="sectionBody">
-                {formatList(post.key_strengths)}
+            )}
+            {post.key_problems?.length === 0 ? null : (
+              <div className="keyGroup">
+                <div className="sectionTitleWithIcon">
+                  <span className="sectionTitle">KEY_PROBLEMS 📉</span>
+                </div>
+                <div className="sectionBody">
+                  |{formatList(post.key_problems)}|
+                </div>
               </div>
-            </div>
-
-            <div className="keyGroup">
-              <div className="sectionTitleWithIcon">
-                <span className="sectionTitle">📉 Key Problems</span>
-              </div>
-              <div className="sectionBody">{formatList(post.key_problems)}</div>
-            </div>
+            )}
           </div>
         </div>
       ))}

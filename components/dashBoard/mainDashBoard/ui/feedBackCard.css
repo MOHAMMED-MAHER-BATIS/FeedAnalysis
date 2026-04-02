@@ -6,22 +6,30 @@
 
 .feedbackCardList {
   width: 100%;
-  background: var(--color-primary-100);
-  padding: 14px;
+  background: rgb(216, 216, 216);
+  padding: 5px;
+  margin: 12px;
+  gap: 5px;
+  max-height: 70vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  border-radius: 14px;
+  box-shadow: #111111 0px 8px 24px;
+  scroll-behavior: slow;
 }
 
 .feedbackCard {
-  color: #ffffff;
+  color: #111111;
   width: 100%;
-  min-height: 170px;
   display: flex;
   flex-direction: row;
   align-items: flex-start;
   gap: 18px;
-  background: var(--color-primary-900);
+  background: white;
   padding: 18px;
   border-radius: 14px;
   box-shadow: 0 8px 20px rgba(17, 24, 39, 0.08);
+  margin-bottom: 5px;
 }
 
 .sentimentColumn {
@@ -33,9 +41,9 @@
 
 .sentimentbadge {
   text-transform: lowercase;
-  color: #ffffff;
+  color: #111111;
   font-weight: 800;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1;
   padding: 10px 14px;
   border-radius: 999px;
@@ -43,22 +51,31 @@
 }
 
 .sentiment-negative {
-  background: #d04a4a;
+  color: #773535;
+  background: #ff9696;
 }
 
 .sentiment-positive {
-  background: #2f8f63;
+  color: #205b1e;
+  background: #c1ffd1;
 }
 
 .sentiment-neutral {
-  background: #6b7280;
+  background: #a7a7a7;
 }
 
 .detailColumn,
-.summaryColumn,
-.keyPointsColumn {
+.summaryColumn {
   display: flex;
   flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+  border-color: 5px solid #6b7280;
+}
+
+.keyPointsColumn {
+  display: flex;
+  flex-direction: row;
   gap: 8px;
   min-width: 0;
 }
@@ -83,9 +100,13 @@
 }
 
 .sectionTitle {
-  font-size: 16px;
-  font-weight: 800;
-  color: #ffffff;
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+  background-color: rgb(0, 0, 0);
+  padding: 0 5px 0 5px;
+  width: fit-content;
+  border-radius: 999px;
 }
 
 .sectionTitleWithIcon {
@@ -95,12 +116,19 @@
 }
 
 .sectionBody {
-  font-size: 16px;
-  color: #ffffff;
+  font-size: 14px;
+  color: #111111;
   line-height: 1.45;
   white-space: normal;
   word-break: break-word;
   overflow-wrap: anywhere;
+  font-weight: 500;
+}
+
+.keyGroup {
+  font-size: 13px;
+  color: #e5e5e5;
+  width: 100%;
 }
 
 .icon {
@@ -111,11 +139,11 @@
 }
 
 .icon-good {
-  background: #2f8f63;
+  background: #8a8a8a;
 }
 
 .icon-bad {
-  background: #d44545;
+  background: #5f5f5f;
 }
 
 @media (max-width: 1100px) {

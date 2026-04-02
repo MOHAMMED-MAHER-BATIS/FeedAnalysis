@@ -24,7 +24,7 @@ export default function LogIn() {
   return (
     <div className="FormContainer">
       <h1>Welcome to the FeedAnalysis App</h1>
-      <h1>Log In Please</h1>
+
       <form
         className="signInForm"
         onSubmit={(e) => {
@@ -32,6 +32,7 @@ export default function LogIn() {
           loginUser();
         }}
       >
+        <h3>Log In</h3>
         <label htmlFor="email">Email:</label>
         <input
           type="email"
