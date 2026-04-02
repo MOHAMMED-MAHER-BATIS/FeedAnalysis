@@ -5,11 +5,176 @@
 }
 
 .quickGraphContainer {
-  background: rgb(216, 216, 216);
-  padding: 5px;
-  margin: 24px 24px 0 24px;
-  gap: 5px;
+  background: linear-gradient(145deg, #f8f9fb 0%, #e9edf2 100%);
+  padding: 18px;
+  margin: 24px 24px 0px 24px;
+  gap: 14px;
   max-height: 70vh;
+  min-height: 230px;
   border-radius: 14px;
-  box-shadow: #111111 0px 8px 24px;
+  border: 1px solid #d9dee5;
+  box-shadow: 0 8px 24px rgba(17, 17, 17, 0.18);
+  display: flex;
+  flex-direction: column;
+  color: #1f2937;
+}
+
+.overallScore {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.totalFeedback {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #334155;
+}
+
+.overallContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.reportButton {
+  background: #ffffff;
+  color: #111111;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 14px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(17, 17, 17, 0.1);
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.reportButton:hover {
+  background: #111111;
+  color: #ffffff;
+}
+
+.sentimentContainer {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.goodSentiment,
+.neutralSentiment,
+.badSentiment {
+  padding: 12px;
+  border-radius: 10px;
+  font-weight: 600;
+  text-align: center;
+  border: 1px solid transparent;
+}
+
+.goodSentiment {
+  background: #e9fce9;
+  border-color: #b9efb9;
+  color: #14532d;
+}
+
+.neutralSentiment {
+  background: #fff7df;
+  border-color: #ffe6a3;
+  color: #92400e;
+}
+
+.badSentiment {
+  background: #fee9e9;
+  border-color: #f8b4b4;
+  color: #7f1d1d;
+}
+
+.frequenciesContaner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  min-height: 0;
+}
+
+.strength {
+  background: linear-gradient(145deg, #f8f9fb 0%, #e9fce9 100%);
+  border: 1px solid #dce3ec;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  max-height: 170px;
+  overflow: hidden;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.problem {
+  background: linear-gradient(145deg, #f8f9fb 0%, #fee9e9 100%);
+  border: 1px solid #dce3ec;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  max-height: 170px;
+  overflow: hidden;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.listTitle {
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.feedbackList {
+  list-style: disc;
+  padding-left: 20px;
+  margin: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+}
+
+.feedbackList li {
+  margin-bottom: 4px;
+  color: #334155;
+}
+
+.feedbackList::-webkit-scrollbar {
+  width: 8px;
+}
+
+.feedbackList::-webkit-scrollbar-thumb {
+  background: #c2cad4;
+  border-radius: 8px;
+}
+
+@media (max-width: 768px) {
+  .quickGraphContainer {
+    margin: 14px;
+    padding: 14px;
+  }
+
+  .overallContainer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .sentimentContainer {
+    grid-template-columns: 1fr;
+  }
+
+  .frequenciesContaner {
+    grid-template-columns: 1fr;
+  }
 }

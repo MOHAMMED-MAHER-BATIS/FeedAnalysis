@@ -56,6 +56,7 @@ export default function QuickGraph() {
     strengths_frequencies,
     problems_frequencies,
   } = stats;
+
   const { positive = 0, neutral = 0, negative = 0 } = sentiment_counts || {};
 
   const overallScore =
@@ -66,26 +67,50 @@ export default function QuickGraph() {
   const problemsList =
     problems.length > 0 ? problems : mapToList(problems_frequencies);
 
+  function handleGenerateReport() {
+    // Placeholder for report generation logic
+    alert("Report generation is not implemented yet.");
+  }
   return (
     <div className="quickGraphContainer">
-      <div className="overallScore">Overall Score: {overallScore}%</div>
-      <div className="totalFeedback">Total Feedback: {total_feedbacks}</div>
+      <div className="overallContainer">
+        <div className="overallScore">Overall Score: {overallScore}%</div>
+        <div className="totalFeedback">Total Feedback: {total_feedbacks}</div>
+        <button className="reportButton" onClick={handleGenerateReport}>
+          GENERATE REPORT ✨
+        </button>
+      </div>
 
       <div className="sentimentContainer">
-        <div className="goodSentiment">Good: {positive}</div>
+        <div className="goodSentiment">Positive: {positive}</div>
         <div className="neutralSentiment">Neutral: {neutral}</div>
-        <div className="badSentiment">Bad: {negative}</div>
+        <div className="badSentiment">Negative: {negative}</div>
       </div>
 
       <div className="frequenciesContaner">
         <div className="strength">
-          {/* Strengths:{" "}
-          {strengthsList.length > 0 ? strengthsList.join(", ") : "N/A"} */}
-          strength
+          <div className="listTitle">Strengths:</div>
+          {strengthsList.length > 0 ? (
+            <ul className="feedbackList">
+              {strengthsList.map((item, index) => (
+                <li key={`${item}-${index}`}>{item}</li>
+              ))}
+            </ul>
+          ) : (
+            <div>N/A</div>
+          )}
         </div>
         <div className="problem">
-          {/* Problems: {problemsList.length > 0 ? problemsList.join(", ") : "N/A"} */}
-          problem
+          <div className="listTitle">Problems:</div>
+          {problemsList.length > 0 ? (
+            <ul className="feedbackList">
+              {problemsList.map((item, index) => (
+                <li key={`${item}-${index}`}>{item}</li>
+              ))}
+            </ul>
+          ) : (
+            <div>N/A</div>
+          )}
         </div>
       </div>
     </div>

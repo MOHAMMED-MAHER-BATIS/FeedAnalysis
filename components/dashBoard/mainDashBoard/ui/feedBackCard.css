@@ -5,15 +5,15 @@
 }
 
 .feedbackCardList {
-  background: rgb(216, 216, 216);
-  padding: 5px;
-  margin: 24px;
+  background: linear-gradient(145deg, #f8f9fb 0%, #e9edf2 100%);
+  padding: 18px;
+  margin: 0px 24px 0px 24px;
   gap: 5px;
   max-height: 70vh;
   overflow-y: auto;
   overflow-x: hidden;
   border-radius: 14px;
-  box-shadow: #111111 0px 8px 24px;
+  box-shadow: 0 8px 24px rgba(17, 17, 17, 0.18);
   scroll-behavior: slow;
 }
 
@@ -50,17 +50,18 @@
 }
 
 .sentiment-negative {
-  color: #773535;
-  background: #ff9696;
+  color: #7f1d1d;
+  background: #fee9e9;
 }
 
 .sentiment-positive {
-  color: #205b1e;
-  background: #c1ffd1;
+  color: #14532d;
+  background: #e9fce9;
 }
 
 .sentiment-neutral {
-  background: #a7a7a7;
+  background: #fff7df;
+  color: #92400e;
 }
 
 .detailColumn,
@@ -101,8 +102,8 @@
 .sectionTitle {
   font-size: 14px;
   font-weight: bold;
-  color: white;
-  background-color: rgb(0, 0, 0);
+  color: black;
+  background: linear-gradient(186deg, #f8f9fb 0%, #e9edf2 118%);
   padding: 2px 5px 2px 5px;
   width: fit-content;
   border-radius: 999px;
