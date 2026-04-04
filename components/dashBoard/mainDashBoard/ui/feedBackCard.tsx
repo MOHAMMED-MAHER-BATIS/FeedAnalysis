@@ -63,7 +63,7 @@ export default function FeedbackCard() {
   return (
     <div className="feedbackCardList">
       {posts.map((post) => (
-        <div className="feedbackCard" key={post.id}>
+        <div className={`feedbackCard ${post.sentiment}`} key={post.id}>
           <div className="sentimentColumn">
             <div className={`sentimentbadge ${sentimentClass(post.sentiment)}`}>
               {post.sentiment?.toUpperCase() ?? "N/A"}

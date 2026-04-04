@@ -17,14 +17,42 @@
   scroll-behavior: slow;
 }
 
-.feedbackCard {
+.feedbackCard.positive {
   color: #111111;
   width: 100%;
   display: flex;
   flex-direction: row;
   align-items: flex-start;
   gap: 18px;
-  background: white;
+  background: linear-gradient(165deg, #f8f9fb 0%, #e9fce9 100%);
+  padding: 18px;
+  border-radius: 14px;
+  box-shadow: 0 8px 20px rgba(17, 24, 39, 0.08);
+  margin-bottom: 5px;
+}
+
+.feedbackCard.negative {
+  color: #111111;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 18px;
+  background: linear-gradient(165deg, #f8f9fb 0%, #fee9e9 100%);
+  padding: 18px;
+  border-radius: 14px;
+  box-shadow: 0 8px 20px rgba(17, 24, 39, 0.08);
+  margin-bottom: 5px;
+}
+
+.feedbackCard.neutral {
+  color: #111111;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 18px;
+  background: linear-gradient(165deg, #f8f9fb 0%, #fff7df 100%);
   padding: 18px;
   border-radius: 14px;
   box-shadow: 0 8px 20px rgba(17, 24, 39, 0.08);
@@ -103,7 +131,6 @@
   font-size: 14px;
   font-weight: bold;
   color: black;
-  background: linear-gradient(186deg, #f8f9fb 0%, #e9edf2 118%);
   padding: 2px 5px 2px 5px;
   width: fit-content;
   border-radius: 999px;
