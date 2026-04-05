@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import { doc, getDoc, getFirestore } from "firebase/firestore";
 import { app } from "@/config/firebase";
 import { generateReport } from "@/hooks/ai/generateReport";
+import { generateSummary } from "@/hooks/ai/generateSummary";
 import Modal from "react-modal";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
@@ -85,12 +86,34 @@ export default function QuickGraph() {
       await generateReport(JSON.stringify(payload));
       return;
     }
+    if (reportType === "good-summary" || reportType === "bad-summary") {
+      await generateSummary(JSON.stringify(payload), reportType);
+    }
   }
 
   async function handleViewReport() {
     try {
       const db = getFirestore(app);
       const reportRef = doc(db, "report", "latest");
+      const reportSnap = await getDoc(reportRef);
+
+      if (reportSnap.exists()) {
+        const reportContent = reportSnap.data().content;
+        setReport(reportContent);
+        setIsOpen(true);
+      } else {
+        console.log("No report found. Generate one first.");
+      }
+    } catch (error) {
+      console.error("Error fetching report:", error);
+    }
+  }
+  async function handleViewSummary(
+    summaryType: "good-summary" | "bad-summary",
+  ) {
+    try {
+      const db = getFirestore(app);
+      const reportRef = doc(db, "summary", summaryType);
       const reportSnap = await getDoc(reportRef);
 
       if (reportSnap.exists()) {
@@ -158,12 +181,50 @@ export default function QuickGraph() {
 
       <div className="frequenciesContaner">
         <div className="strength">
-          <button
-            className="reportButtonStrengths"
-            onClick={() => handleGenerateReport(strengthsList, "good-summary")}
+          <div>
+            <button
+              className="reportButtonStrengths"
+              onClick={() =>
+                handleGenerateReport(strengthsList, "good-summary")
+              }
+            >
+              Summarize the Strengths ✨
+            </button>
+            <button
+              className="reportButtonStrengths"
+              onClick={() => handleViewSummary("good-summary")}
+            >
+              VIEW The Summary 📄
+            </button>
+          </div>
+          <Modal
+            isOpen={isOpen}
+            onRequestClose={() => setIsOpen(false)}
+            contentLabel="Generated report"
+            className="reportModal"
+            overlayClassName="reportModalOverlay"
+            closeTimeoutMS={150}
           >
-            Summarize the Strengths ✨
-          </button>
+            <div className="reportModalHeader">
+              <h3>Generated Report</h3>
+              <button
+                type="button"
+                className="reportModalCloseButton"
+                onClick={() => setIsOpen(false)}
+              >
+                Close
+              </button>
+            </div>
+            <div className="reportModalContent">
+              {report ? (
+                <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                  {report}
+                </ReactMarkdown>
+              ) : (
+                <p>No report content found.</p>
+              )}
+            </div>
+          </Modal>
           <div className="listTitle">Strengths:</div>
           {strengthsList.length > 0 ? (
             <ul className="feedbackList">
@@ -176,12 +237,48 @@ export default function QuickGraph() {
           )}
         </div>
         <div className="problem">
-          <button
-            className="reportButtonProblems"
-            onClick={() => handleGenerateReport(problemsList, "bad-summary")}
+          <div>
+            <button
+              className="reportButtonProblems"
+              onClick={() => handleGenerateReport(problemsList, "bad-summary")}
+            >
+              Summarize the Problems ✨
+            </button>
+            <button
+              className="reportButtonProblems"
+              onClick={() => handleViewSummary("bad-summary")}
+            >
+              VIEW The Summary 📄
+            </button>
+          </div>
+          <Modal
+            isOpen={isOpen}
+            onRequestClose={() => setIsOpen(false)}
+            contentLabel="Generated report"
+            className="reportModal"
+            overlayClassName="reportModalOverlay"
+            closeTimeoutMS={150}
           >
-            Summarize the Problems ✨
-          </button>
+            <div className="reportModalHeader">
+              <h3>Generated Report</h3>
+              <button
+                type="button"
+                className="reportModalCloseButton"
+                onClick={() => setIsOpen(false)}
+              >
+                Close
+              </button>
+            </div>
+            <div className="reportModalContent">
+              {report ? (
+                <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                  {report}
+                </ReactMarkdown>
+              ) : (
+                <p>No report content found.</p>
+              )}
+            </div>
+          </Modal>
           <div className="listTitle">Problems:</div>
           {problemsList.length > 0 ? (
             <ul className="feedbackList">
