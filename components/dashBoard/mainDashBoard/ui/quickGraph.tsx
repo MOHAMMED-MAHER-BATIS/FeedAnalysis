@@ -84,10 +84,12 @@ export default function QuickGraph() {
   ) {
     if (reportType === "report") {
       await generateReport(JSON.stringify(payload));
+      window.alert("Report generated successfully! You can view it now.");
       return;
     }
     if (reportType === "good-summary" || reportType === "bad-summary") {
       await generateSummary(JSON.stringify(payload), reportType);
+      window.alert("Summary generated successfully! You can view it now.");
     }
   }
 
@@ -102,7 +104,7 @@ export default function QuickGraph() {
         setReport(reportContent);
         setIsOpen(true);
       } else {
-        console.log("No report found. Generate one first.");
+        window.alert("No report found. Generate one first.");
       }
     } catch (error) {
       console.error("Error fetching report:", error);
@@ -121,10 +123,11 @@ export default function QuickGraph() {
         setReport(reportContent);
         setIsOpen(true);
       } else {
-        console.log("No report found. Generate one first.");
+        window.alert("No report found. Generate one first.");
       }
     } catch (error) {
       console.error("Error fetching report:", error);
+      window.alert("Error fetching report.");
     }
   }
   return (
